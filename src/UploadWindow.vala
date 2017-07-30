@@ -1,4 +1,4 @@
-public class Uploader : Gtk.Window {
+public class UploadWindow : Gtk.Window {
 
     class LLabel : Gtk.Label {
         
@@ -82,75 +82,13 @@ public class Uploader : Gtk.Window {
         upload_button.clicked.connect (() => {
 
 			// YouTube check if access token is valid
-
+            
 			// If not, request a new one.
 
 			// If it is, make the API Call
 
-            string url;
-            string path = file.get_path ();
-
-            if (path.has_prefix ("'") && path.has_suffix ("'"))
-                path = path.substring (1, path.length - 2);
-
-            string command = "curl -F\"api=1\" -F\"videoFile=@" + path + "\" ";
-
-            if (email.text != "")
-                command += "-F\"email=%s\" ".printf (email.text);
-
-            if (title.text != "")
-                command += "-F\"title=%s\" ".printf (title.text);
-
-            if (description.text != "")
-                command += "-F\"description=%s\" ".printf (description.text);
-
-            command += "https://www.googleapis.com/upload/youtube/v3/videos";
-
-            try {
-                Process.spawn_command_line_sync (command, out url);
-            } catch (Error e) {
-                error (e.message);
-            }
-
-            try {
-                if (url == null || url == "") {
-                    warning("The upload has failed. Command: %s", command);
-                } else {
-                    Process.spawn_command_line_async ("sensible-browser " + url);
-                }
-            } catch (Error e) {
-                error (e.message);
-            }
-
             Gtk.main_quit ();
         });
-    }
-}
-
-/*
- |-------------------------------------------------------------------------
- | Constructor Función Principal
- |-------------------------------------------------------------------------
- | Aqui se pone la función principal de la aplicación. Esto hace funcionar 
- | todo.
- |
- */
-
- public static void main (string [] args) {
-	// Se inicializa Gtk con los argumentos
-    Gtk.init (ref args);
-
-	
-    if (args.length <= 1) {
-        warning ("You must provide a valid file path");
-    } else {
-		// Se instancia la clase Uploader con la ruta del archivo como parámetro
-		var file = File.new_for_path (args[1]);
-
-        var dialog = new Uploader (file);
-        dialog.show_all ();
-
-        Gtk.main ();
     }
 }
 

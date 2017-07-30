@@ -1,7 +1,4 @@
-using Gtk;
-using WebKit;
-
-namespace Tubie.Auth {
+public class Auth {
 
     void doFullAuth() {
         unowned string[] args = null;
@@ -13,10 +10,8 @@ namespace Tubie.Auth {
         window.set_position(Gtk.WindowPosition.CENTER);
         window.title = "Tubie Authorization";
         window.destroy.connect(Gtk.main_quit);
-
         // Creo la vista web
-        var webView = new WebView();
-
+        var webView = new WebKit.WebView();
         // La pongo en la ventana
         window.add(webView);
 

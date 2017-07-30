@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Tubie
+Comment=Upload your videos to YouTube
+Exec=com.github.mnavarrocarter.tubie
+Icon=com.github.mnavarrocarter.tubie
+Keywords=video;upload;youtube;
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GTK;Utility;
