@@ -1,0 +1,6 @@
+[Contractor Entry]
+Name=YouTube Uploader
+Icon=youtube-icon
+Description=Upload to YouTube
+MimeType=video
+Exec=youtube-upload %u
