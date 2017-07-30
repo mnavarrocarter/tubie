@@ -29,7 +29,7 @@ public class UploadWindow : Gtk.Window {
         }
     }
 
-    public Uploader (File file) {
+    public void Uploader (File file) {
         this.title = "Upload to YouTube";
         this.set_default_size (300, -1);
         this.window_position = Gtk.WindowPosition.CENTER;
@@ -82,12 +82,13 @@ public class UploadWindow : Gtk.Window {
         upload_button.clicked.connect (() => {
 
 			// YouTube check if access token is valid
-            
+            var auth = new Auth();
+            auth.authorize_app();            
 			// If not, request a new one.
 
 			// If it is, make the API Call
 
-            Gtk.main_quit ();
+            Gtk.main_quit();
         });
     }
 }

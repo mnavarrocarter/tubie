@@ -1,0 +1,6 @@
+[Contractor Entry]
+Name=Tubie
+Icon=com.github.mnavarrocarter.tubie
+Description=Upload to YouTube
+MimeType=video
+Exec=com.github.mnavarrocarter.tubie %u

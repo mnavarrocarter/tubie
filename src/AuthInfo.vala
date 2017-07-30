@@ -1,4 +1,4 @@
-namespace Tubie.AuthInfo {
+public class AuthInfo {
 
     const string access_token_key = "access_token";
     const string refresh_token_key = "refresh_token";

@@ -31,11 +31,12 @@
     // Se inicializa Gtk con los argumentos
     Gtk.init (ref args);
     if (args.length <= 1) {
-        warning ("You must provide a valid file path");
+        warning("You must select a file to upload");
     } else {
         // Se instancia la clase UploadWindow con la ruta del archivo como parámetro
         var file = File.new_for_path (args[1]);
-        var dialog = new UploadWindow (file);
+        var dialog = new UploadWindow();
+        dialog.Uploader(file);
         dialog.show_all ();
         Gtk.main ();
     }

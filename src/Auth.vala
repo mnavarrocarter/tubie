@@ -1,6 +1,6 @@
 public class Auth {
 
-    void doFullAuth() {
+    public void authorize_app() {
         unowned string[] args = null;
         Gtk.init(ref args);
         
@@ -24,7 +24,7 @@ public class Auth {
                 if (split.length == 2 && split[0] == "Success code") {
                     var code = split[1];
                     window.destroy();
-                    requestToken(code);
+                    message(code);
                 }
             }
         });
@@ -44,6 +44,7 @@ public class Auth {
      * 3. Refresca auth utilizando el refresh token si existe
      * 4. Hace un Full Auth
      **/
+     /*
     public void authenticate() {
         message("Attempting authentication using Google OAuth 2.0");
 
@@ -110,6 +111,7 @@ public class Auth {
 
         AuthInfo.persist();
     }
+    */
 
 }
 
