@@ -27,21 +27,27 @@
  |
  */
 
-namespace Tubie {
+public class Tubie : Gtk.Application {
 
-    public static void main (string [] args) {
-        // Se inicializa Gtk con los argumentos
-        Gtk.init (ref args);
+    public File file;
+
+    public Tubie () {
+        Object (application_id: "com.github.mnavarrocarter.tubie",
+        flags: ApplicationFlags.FLAGS_NONE);
+    }
+
+    protected override void activate () {
+        var upload_window = new Views.UploadWindow (this);
+        upload_window.uploader(file);
+        upload_window.show ();
+    }
+
+    public static int main (string[] args) {
         if (args.length <= 1) {
             warning("You must select a file to upload");
         } else {
-            // Se instancia la clase UploadWindow con la ruta del archivo como parámetro
-            var file = File.new_for_path (args[1]);
-            var dialog = new UploadWindow();
-            dialog.Uploader(file);
-            dialog.show_all ();
-            Gtk.main ();
+            file = File.new_for_path (args[1]);
+            return new Tubie ().run ();
         }
     }
-
 }

@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-    <schema path="/com/github/mnavarrocarter/tubie/" 
-        id="com.github.mnavarrocarter.tubie" 
+    <schema id="com.github.mnavarrocarter.tubie" path="/com/github/mnavarrocarter/tubie/"
         gettext-domain="com.github.mnavarrocarter.tubie">
-        <key name="window-x" type="i">
-            <default>-1</default>
-            <summary>Most recent x position of Tubie</summary>
-            <description>Most recent x position of Tubie</description>
+        <key name="access-token" type="s">
+            <default>""</default>
+            <summary>Google Access Token</summary>
+            <description></description>
         </key>
-        <key name="window-y" type="i">
+        <key name="refresh-token" type="s">
+            <default>""</default>
+            <summary>Google Refresh Token</summary>
+            <description></description>
+        </key>
+        <key name="expires-in" type="i">
             <default>-1</default>
-            <summary>Most recent y position of Tubie</summary>
-            <description>Most recent y position of Tubie</description>
+            <summary>Access Token Duration</summary>
+            <description></description>
+        </key>
+        <key name="issued" type="i">
+            <default>-1</default>
+            <summary>Access Token Issue Date</summary>
+            <description></description>
         </key>
     </schema>
 </schemalist>

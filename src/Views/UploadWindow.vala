@@ -1,4 +1,4 @@
-namespace Tubie.Views {
+namespace Views {
 
     public class UploadWindow : Gtk.Window {
 
@@ -31,7 +31,7 @@ namespace Tubie.Views {
             }
         }
 
-        public void Uploader (File file) {
+        public void uploader (File file) {
             this.title = "Upload to YouTube";
             this.set_default_size (300, -1);
             this.window_position = Gtk.WindowPosition.CENTER;
@@ -82,15 +82,8 @@ namespace Tubie.Views {
             cancel.clicked.connect (Gtk.main_quit);
 
             upload_button.clicked.connect (() => {
-
-    			// YouTube check if access token is valid
-                var auth = new Auth();
-                auth.authorize_app();            
-    			// If not, request a new one.
-
-    			// If it is, make the API Call
-
-                Gtk.main_quit();
+                var auth = new Auth.OAuth ();
+                Gtk.main_quit ();
             });
         }
         
