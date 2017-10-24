@@ -83,6 +83,9 @@ namespace Views {
 
             upload_button.clicked.connect (() => {
                 var auth = new Auth.OAuth ();
+
+                
+
                 Gtk.main_quit ();
             });
         }
